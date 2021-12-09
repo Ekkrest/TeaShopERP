@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\程式設計\\DataBase_Final\\DataBase_Final\\DataBase_Final.csproj": {}
+    "D:\\程式設計\\TeaShopERP\\DataBase_Final\\DataBase_Final.csproj": {}
   },
   "projects": {
-    "D:\\程式設計\\DataBase_Final\\DataBase_Final\\DataBase_Final.csproj": {
+    "D:\\程式設計\\TeaShopERP\\DataBase_Final\\DataBase_Final.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\程式設計\\DataBase_Final\\DataBase_Final\\DataBase_Final.csproj",
+        "projectUniqueName": "D:\\程式設計\\TeaShopERP\\DataBase_Final\\DataBase_Final.csproj",
         "projectName": "DataBase_Final",
-        "projectPath": "D:\\程式設計\\DataBase_Final\\DataBase_Final\\DataBase_Final.csproj",
+        "projectPath": "D:\\程式設計\\TeaShopERP\\DataBase_Final\\DataBase_Final.csproj",
         "packagesPath": "C:\\Users\\abc96\\.nuget\\packages\\",
-        "outputPath": "D:\\程式設計\\DataBase_Final\\DataBase_Final\\obj\\",
+        "outputPath": "D:\\程式設計\\TeaShopERP\\DataBase_Final\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\abc96\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -43,6 +43,14 @@
             "Dapper": {
               "target": "Package",
               "version": "[2.0.123, )"
+            },
+            "JavaScriptEngineSwitcher.Extensions.MsDependencyInjection": {
+              "target": "Package",
+              "version": "[3.3.0, )"
+            },
+            "JavaScriptEngineSwitcher.V8": {
+              "target": "Package",
+              "version": "[3.14.0, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",

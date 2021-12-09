@@ -10,6 +10,7 @@ using DataBase_Final.Models;
 using Dapper;
 using static Dapper.SqlMapper;
 using System;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace DataBase_Final.Controllers
 {
@@ -17,11 +18,42 @@ namespace DataBase_Final.Controllers
     {
         IRepository repo = new MyRepository();
 
-        public IActionResult Login() {
+        public IActionResult Register()
+        {
             return View();
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Register(Administrator _admin) 
+        {
+            if ((_admin != null) && ModelState.IsValid)
+            {
+                SqlConnection Conn = repo.ConnOpen();
+
+                string sqlstr = "INSERT INTO [Administrator] ([AdministratorName],[Password])";
+                sqlstr += " VALUES (@AdministratorName, @Password)";
+
+                int affectRows = Conn.Execute(sqlstr, new
+                {
+                    AdministratorName = _admin.AdministratorName,
+                    Password = _admin.Password
+                });
+
+                return RedirectToAction("Login");
+            }
+            else 
+            {
+                ModelState.AddModelError("", "");
+                return View();
+            }      
+        }
+
+        public IActionResult Login() {
+            return View();
+        }
+
+        [HttpPost] 
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(Administrator _admin) 
         {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 #nullable disable
 
@@ -24,6 +25,7 @@ namespace DataBase_Final.Models
         [Display(Name = "密碼")]
         public string Password { get; set; }
 
+        [NotMapped]
         public bool Approval { get; set; }
 
         public Guid Rowguid { get; set; }

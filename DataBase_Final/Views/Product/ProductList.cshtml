@@ -1,0 +1,81 @@
+﻿@model IEnumerable<DataBase_Final.Models.ProductCategory>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ProductList</title>
+</head>
+<body>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table" border="1">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductCategoryId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ParentProductCategoryId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductCategoryId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ParentProductCategoryId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <table class="table" border="1">
+                            <tr>
+                                <th>ProductId</th>
+                                <th>ProductName</th>
+                                <th>Product ProductCategoryId</th>
+                            </tr>
+
+                            @foreach (var item2 in item.Products)
+                            {   //                              ****************** 改寫的 重 點！！
+                                <tr>
+                                    <td bgcolor="Aqua">
+                                        @Html.DisplayFor(modelItem2 => item2.ProductId)
+                                        <!--                                              ****************** 改寫的 重 點！！  -->
+                                    </td>
+                                    <td bgcolor="Aqua">
+                                        @Html.DisplayFor(modelItem2 => item2.Name)
+                                    </td><!--                                         ****************** 改寫的 重 點！！  -->
+                                    <td bgcolor="Aqua">
+                                        @Html.DisplayFor(modelItem2 => item2.ProductCategoryId)
+                                    </td><!--                                         ****************** 改寫的 重 點！！  -->
+                                </tr>
+                            }
+                        </table>            
+                    </td>    
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ProductCategoryId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ProductCategoryId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ProductCategoryId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
